@@ -1,9 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import {db,auth} from "../firebase.js";
+import firebase from "firebase/compat/app";
 
 function SendMessage() {
     const [message,setMessages] = useState("");
     function SendMessage(e){
         e.preventDefault();
+
+        const {uid,photoURL}=auth.currentUser;
+
+        db.collection("messages").add({
+            text:message,
+            photoURL,
+            uid,
+            createdAt:firebase.firestore.FieldValue.serverTimestamp(),
+        })
     }
   return (
     <div>
