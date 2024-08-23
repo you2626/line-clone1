@@ -23,13 +23,20 @@ function SendMessage() {
     <div>
         <form onSubmit={SendMessage}>
             <div className="sendMsg">
-            <Input 
+            <Input
+            style={{
+                width:"78%",
+                fontSize:"15px",
+                fontWeight:"550",
+                marginLeft:"5px",
+                marginBottom:"-3px",
+            }}
             placeholder='メッセージを入力してください' 
             type="text" 
             onChange={(e)=>setMessages(e.target.value)}
             value={message}
             />
-            <SendIcon />
+            <SendIcon style={{color:"#7AC2FF",marginLeft:"20px"}}/>
             </div>
         </form>
     </div>
